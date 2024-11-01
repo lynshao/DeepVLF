@@ -4,6 +4,7 @@ from parameters import *
 import numpy as np
 import torch.optim as optim
 from model import DeepVLF
+
 def compute_avgcodelength(logs):
     es_list = []
     for log in logs:
