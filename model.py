@@ -155,7 +155,7 @@ class DeepVLF(nn.Module):
                 preds = torch.log(belief.contiguous().view(-1, belief.size(-1)))
                 mask_flatten = mask.view(-1).to(self.args.device)
                 loss = F.nll_loss(preds[~mask_flatten], ys.to(self.args.device)[~mask_flatten])
-                loss_cof = 10**(idx-self.args.offset)
+                loss_cof = 10**(idx-1-self.args.offset)
                 losses += loss_cof*loss
                 ############# Update the decoding decision ###################################################
                 mask = (torch.max(belief, dim=2)[0] > belief_threshold) & torch.ones(self.args.batchSize,
