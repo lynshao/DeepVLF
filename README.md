@@ -9,13 +9,13 @@ conda activate DeepVLF
 ```
 
 ## Train 
-We implement a 2-stage strategy during the training process. Following command can be an example to train and evaluate a model.
+We implement a 2-stage strategy during the training process. Following command can be an example to train and evaluate a model for 1dB forward channel with noiseless feedback.
 ```python
 python main.py --snr1 1 --snr2 100 --batchSize 8192 --totalbatch 10  --train 1 --core 1 --truncated 10 --restriction 'mid'
 ```
 
 ## Evaluate
-Large batchsize could help improve the statistics accurancy in test stage. Following is an example to evaluate our pretrained's performance.
+Large batchsize could help improve the statistics accurancy in the evaluation stage. Following is an example for 1dB forward channel with noiseless feedback to evaluate our pretrained's performance. Note that align `test_model` with `restriction`. 
 ```python
 python main.py --snr1 1 --snr2 100 --batchSize 100000 --train 0 --truncated 10 --restriction 'mid' --test_model 'weights/weight_ff_1_fb_100_gamma_1-1e-5'
 ```
