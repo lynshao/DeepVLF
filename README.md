@@ -1,5 +1,13 @@
 # DeepVLF
 We proposed deep variable-length feedback (DeepVLF) code, a novel DL-aided variable-length feedback coding scheme. By segmenting messages into multiple bit groups and employing a threshold-based decoding mechanism for independent decoding of each bit group across successive communication rounds, DeepVLF outperforms existing DL-based feedback codes and establishes a new benchmark in feedback channel coding.
+
+## Requirements
+A suitable conda environment named `DeepVLF` can be created and activated with:
+```
+conda env create -f environment.yaml
+conda activate DeepVLF
+```
+
 ## Train 
 We implement a 2-stage strategy during the training process. Following command can be an example to train and evaluate a model.
 ```python
