@@ -83,7 +83,7 @@ def train_model(model, args):
             w0 = copy.deepcopy(w0)
         else:
             # Use the common model to have a large batch strategy
-            model.oad_state_dict(w0)
+            model.load_state_dict(w0)
         
         ################################## Training ###############################################
         if args.multclass:
