@@ -150,12 +150,12 @@ class DeepVLF(nn.Module):
             belief_new = self.Rmodel(received, None,self.pe,idx,self.args.tau_vd)
             belief = torch.where(mask.unsqueeze(2), belief, belief_new)
 
-            if idx>tau_plus-1:
+            if idx+1>tau_plus:
                 ############# Backwarding and update gradient ###################################################
                 preds = torch.log(belief.contiguous().view(-1, belief.size(-1)))
                 mask_flatten = mask.view(-1).to(self.args.device)
                 loss = F.nll_loss(preds[~mask_flatten], ys.to(self.args.device)[~mask_flatten])
-                loss_cof = 10**(idx-1-self.args.offset)
+                loss_cof = 10**(idx+1-self.args.offset)
                 losses += loss_cof*loss
                 ############# Update the decoding decision ###################################################
                 mask = (torch.max(belief, dim=2)[0] > belief_threshold) & torch.ones(self.args.batchSize,
@@ -236,7 +236,7 @@ class DeepVLF(nn.Module):
             belief_new = self.Rmodel(received, None,self.pe,idx,self.args.tau_vd)
             belief = torch.where(mask.unsqueeze(2), belief, belief_new)
 
-            if idx>=tau_plus-1:
+            if idx+1>=tau_plus:
                 ############# Update the decoding decision ###################################################
                 mask = (torch.max(belief, dim=2)[0] > belief_threshold) & torch.ones(self.args.batchSize,
                                                                                      self.args.numb_block,
