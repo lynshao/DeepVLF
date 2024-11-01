@@ -15,7 +15,7 @@ python main.py --snr1 1 --snr2 100 --batchSize 8192 --totalbatch 10  --train 1 -
 ```
 
 ## Evaluate
-Large batchsize could help improve the statistics accurancy in the evaluation stage. Following is an example for 1dB forward channel with noiseless feedback to evaluate our pretrained's performance. Note that align `test_model` with `restriction`. 
+Large batchsize could help improve the statistics accurancy in the evaluation stage. Following is an example for 1dB forward channel with noiseless feedback to evaluate our pretrained model's performance. Note that align `test_model` with `restriction`. 
 ```python
 python main.py --snr1 1 --snr2 100 --batchSize 100000 --train 0 --truncated 10 --restriction 'mid' --test_model 'weights/weight_ff_1_fb_100_gamma_1-1e-5'
 ```
