@@ -35,7 +35,7 @@ def args_parser():
     # Learning arguments
     parser.add_argument('--load_weights') # None
     parser.add_argument('--train', type=int, default=0)
-    parser.add_argument('--offset', type=float, default=1.0,
+    parser.add_argument('--offset', type=int, default=9,
                         help="offset of exponential loss coefficient")
     parser.add_argument('--totalbatch', type=int, default=60, help="number of total batches to train; scale it with 10k")
     parser.add_argument('--batchSize', type=int, default=512, help="batch size")
