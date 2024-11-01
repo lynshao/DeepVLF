@@ -6,8 +6,8 @@ We implement a 2-stage strategy during the training process. Following command c
 python main.py --snr1 0 --snr2 100 --batchSize 8192 --totalbatch 10  --train 1 --core 1 --truncated 10 --restriction 'mid'
 ```
 
-## Test 
-Large batchsize could help improve the statistics accurancy in test stage. Following is an example to test our pretrained's performance.
+## Evaluate
+Large batchsize could help improve the statistics accurancy in test stage. Following is an example to evaluate our pretrained's performance.
 ```python
 python main.py --snr1 0 --snr2 100 --batchSize 100000 --train 0 --truncated 10 --restriction 'mid' --test_model 'weights/weight_ff_1_fb_100_gamma_1-1e-5'
 ```
