@@ -151,7 +151,7 @@ class DeepVLF(nn.Module):
             belief_new = self.Rmodel(received, None,self.pe,idx,self.args.tau_vd)
             belief = torch.where(mask.unsqueeze(2), belief, belief_new)
 
-            if idx+1>tau_plus:
+            if idx+1>=tau_plus:
                 ############# Backwarding and update gradient ###################################################
                 preds = torch.log(belief.contiguous().view(-1, belief.size(-1)))
                 mask_flatten = mask.view(-1).to(self.args.device)
