@@ -25,6 +25,7 @@ class PositionalEncoder_fixed(nn.Module):
         pe = Variable(self.pe[:, :seq_len], requires_grad=False)
         x = x + pe
         return self.dropout(x)
+        
 class DeepVLF(nn.Module):
     def __init__(self, args):
         super(DeepVLF, self).__init__()
