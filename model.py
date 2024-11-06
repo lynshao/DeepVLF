@@ -108,7 +108,7 @@ class DeepVLF(nn.Module):
         else:
             mu = 7
         eta = 10**(self.args.snr1/10)
-        tau_plus = max(mu,round(2*self.args.block_size /math.log(1 + eta)))
+        tau_plus = max(mu,round(2*self.args.block_size /math.log((1 + eta),2)))
 
         for idx in range(self.truncated):
             optimizer.zero_grad()
