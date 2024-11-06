@@ -162,7 +162,7 @@ class DeepVLF(nn.Module):
                 mask = (torch.max(belief, dim=2)[0] > belief_threshold) & torch.ones(self.args.batchSize,
                                                                                      self.args.numb_block,
                                                                                      dtype=torch.bool).to(self.args.device)
-                if self.args.break_trained==True and mask.all():
+                if self.args.break_trained and mask.all():
                     break
                 ############# logging early_stop ###################################################
                 early_stop = torch.sum(mask) - sum(es[:idx])
