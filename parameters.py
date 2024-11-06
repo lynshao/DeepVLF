@@ -19,6 +19,7 @@ def args_parser():
                         help="control the value of gamma")
     parser.add_argument('--truncated', type=int, default=10,help="maximum communication round")
     parser.add_argument('--tau_vd', type=int, default=3,help="start round of VD")
+    parser.add_argument('--trained_break', type=int, default=0,help="stop if all bit groups are regarded as decoded when training")
 
     # Transformer arguments
     parser.add_argument('--heads_trx', type=int, default=1, help="number of heads for the multi-head attention")
