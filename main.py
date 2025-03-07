@@ -122,7 +122,6 @@ def train_model(model, args):
                    "lr":args.optimizer.state_dict()['param_groups'][0]['lr'],
                    "BER":1 - succRate.item(),
                    "num":sum(decodeds != ys.to(args.device)).item(),
-                   "final_loss":train_log[-1]['loss'],
                    "losses":losses,
                    "train_log":train_log}
             print(log)
