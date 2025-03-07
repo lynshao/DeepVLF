@@ -43,7 +43,7 @@ def train_model(model, args):
         model.load_state_dict(checkpoint['model'])
         if args.train and 'optimizer' in checkpoint and 'lr_scheduler' in checkpoint and 'epoch' in checkpoint:
             args.optimizer.load_state_dict(checkpoint['optimizer'])
-            args.lr_scheduler.load_state_dict(checkpoint['lr_scheduler'])
+            args.scheduler.load_state_dict(checkpoint['lr_scheduler'])
             args.start_step = checkpoint['epoch'] + 1
         print("================================ Successfully load the pretrained data!")
 
